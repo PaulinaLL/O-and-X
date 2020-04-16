@@ -2,14 +2,27 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-function Square() {
-  return <button className="square"></button>;
+function Square(props) {
+  return <button className="square" onClick={props.onClick}></button>;
 }
 
 class Board extends React.Component {
-  renderSquare(i) {
+    constructor(props) {
+        super(props);
+        this.state = {
+          squares: Array(9).fill(null),
+          xIsNext: true,
+        };
+  
+        handleClick(){
+
+        }
+  
+    renderSquare(i) {
     return <Square value={i} />;
   }
+
+
 
   render() {
     const status = "next player X";
